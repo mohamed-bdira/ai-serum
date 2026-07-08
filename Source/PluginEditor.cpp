@@ -1,7 +1,7 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
-AiSerumAudioProcessorEditor::AiSerumAudioProcessorEditor (AiSerumAudioProcessor& p)
+CortexiaAudioProcessorEditor::CortexiaAudioProcessorEditor (CortexiaAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p),
       webComponent(juce::WebBrowserComponent::Options()
                    .withBackend(juce::WebBrowserComponent::Options::Backend::webview2))
@@ -16,15 +16,15 @@ AiSerumAudioProcessorEditor::AiSerumAudioProcessorEditor (AiSerumAudioProcessor&
     setSize (800, 600);
 }
 
-AiSerumAudioProcessorEditor::~AiSerumAudioProcessorEditor() {}
+CortexiaAudioProcessorEditor::~CortexiaAudioProcessorEditor() {}
 
-void AiSerumAudioProcessorEditor::paint (juce::Graphics& g)
+void CortexiaAudioProcessorEditor::paint (juce::Graphics& g)
 {
     // We don't draw anything in C++ because React handles the UI!
     g.fillAll (juce::Colours::black);
 }
 
-void AiSerumAudioProcessorEditor::resized()
+void CortexiaAudioProcessorEditor::resized()
 {
     // Make the web browser stretch to fill the entire VST window
     webComponent.setBounds(getLocalBounds());
