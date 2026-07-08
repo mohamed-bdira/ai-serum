@@ -1,11 +1,11 @@
 #pragma once
 #include <JuceHeader.h>
 
-class AiSerumAudioProcessor  : public juce::AudioProcessor
+class CortexiaAudioProcessor  : public juce::AudioProcessor
 {
 public:
-    AiSerumAudioProcessor();
-    ~AiSerumAudioProcessor() override;
+    CortexiaAudioProcessor();
+    ~CortexiaAudioProcessor() override;
 
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     void releaseResources() override;
@@ -30,5 +30,8 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override {}
 
 private:
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AiSerumAudioProcessor)
+    double currentPhase = 0.0;
+    double phaseDelta = 0.0;
+    bool noteIsOn = false;
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CortexiaAudioProcessor)
 };
